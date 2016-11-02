@@ -7,6 +7,7 @@ public class main{
 		fox f=new fox(2,2,false,"fox","cccc");
 		w.eat(f);
 		w.print3();
+		System.out.println("Hello");
 	}
 
 }
