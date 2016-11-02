@@ -7,8 +7,19 @@ public class main{
 		fox f=new fox(2,2,false,"fox","cccc");
 		w.eat(f);
 		w.print3();
+<<<<<<< Updated upstream
 		
 		
+=======
+		System.out.println("Hello");
+		System.out.println("Hello");
+		System.out.println("Hello");
+<<<<<<< Updated upstream
+		jin
+=======
+
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 	}
 
 }
