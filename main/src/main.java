@@ -8,6 +8,7 @@ public class main{
 		w.eat(f);
 		w.eat(f);
 		w.print3();
+		System.out.println("Hello");
 	}
 
 }
