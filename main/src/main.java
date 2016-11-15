@@ -17,6 +17,8 @@ public class main{
 		grassHopper gh=new grassHopper("grassHopper",3,2,false,"Grrrrrrrrr");
 		caterpillar c=new caterpillar("caterpillar",3,2,false,"Grrrrrrrrr");
 		
+		bluejay b=new bluejay("bluejay",3,4,false,"bllllllll");
+		
 		grass g=new grass(false,"Grass");
 		tree t=new tree(false,"Tree");
 
