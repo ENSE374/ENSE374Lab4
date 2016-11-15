@@ -6,11 +6,13 @@ public class main{
 		System.out.println("Saskatchewan prairies........");
 		
 		wolf w=new wolf("wolf",3,3,false,"Wooooo");
-		fox f=new fox(2,2,false,"fox","cccc");
+		fox f=new fox(2,2,false,"fox","jajajajajaja");
 		grass g=new grass(false,"Grass");
+		tree t=new tree(false,"Tree");
 
-		w.print3();
-		
+		f.print();
+		w.print();
+		t.print();
 		g.print();
 	}
 

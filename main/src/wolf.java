@@ -16,10 +16,11 @@ public class wolf extends Meat{
 			System.out.println(getName()+" eats "+m.getName());
 	}
 	
-	public void print3()
+	public void print()
 	{
-		super.print1();
+		super.print();
 		System.out.println("sounds: "+sounds);
+		System.out.println("------------------------");
 	}
 
 }
