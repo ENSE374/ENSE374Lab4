@@ -11,9 +11,14 @@ public class wolf extends Meat{
 		sounds=sounds1;
 	}
 	
-	public void eat(fox m)
+	public void eat(deer d)
 	{
-		System.out.println(getName()+" eats "+m.getName());
+		System.out.println(getName()+" eats "+d.getName());
+	}
+	
+	public void eat(rabbit r)
+	{
+		System.out.println(getName()+" eats "+r.getName());
 	}
 	
 	public void print()

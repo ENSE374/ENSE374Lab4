@@ -9,6 +9,27 @@ public class fox extends Meat{
 		sounds=sounds1;
 	}
 	
+	public void eat(bluejay b)
+	{
+		System.out.println(getName()+" eats "+b.getName());
+	}
+	
+	public void eat(rabbit r)
+	{
+		System.out.println(getName()+" eats "+r.getName());
+	}
+	
+	public void eat(mouse m)
+	{
+		System.out.println(getName()+" eats "+m.getName());
+	}
+	
+	public void eat(squirrel s)
+	{
+		System.out.println(getName()+" eats "+s.getName());
+	}
+	
+	
 	public void print()
 	{
 		super.print();
