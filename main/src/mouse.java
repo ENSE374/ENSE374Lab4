@@ -1,10 +1,10 @@
 
-public class squirrel extends Herbivore{
+public class mouse extends Herbivore{
 	private String sounds;
 	
-	public squirrel(){}
+	public mouse(){}
 	
-	public squirrel(String name1,int hungry1,int speed1,boolean death1,String sounds1)
+	public mouse(String name1,int hungry1,int speed1,boolean death1,String sounds1)
 	{
 		super(hungry1, speed1, death1,name1);
 		sounds=sounds1;
@@ -14,6 +14,12 @@ public class squirrel extends Herbivore{
 	{
 		System.out.println(getName()+" eats "+t.getName());
 	}
+	
+	public void eat(grass g)
+	{
+		System.out.println(getName()+" eats "+g.getName());
+	}
+	
 	
 	public void print()
 	{
