@@ -13,7 +13,7 @@ public class wolf extends Meat{
 	
 	public void eat(fox m)
 	{
-			System.out.println(getName()+" eats "+m.getName());
+		System.out.println(getName()+" eats "+m.getName());
 	}
 	
 	public void print()
