@@ -25,7 +25,7 @@ public class main{
 		d.eat(g);
 		h.print();
 		f.print();
-		//w.print();
+		w.print();
 		t.print();
 		g.print();
 	}

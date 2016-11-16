@@ -2,6 +2,7 @@
 
 public class animal {
 	
+	private String name;
 	private int hungry;
 	private int speed;
 	private boolean death;
@@ -9,9 +10,9 @@ public class animal {
 	public animal()
 	{}
 	
-	public animal(int hungry1,int speed1,boolean death1)
+	public animal(String name1,int hungry1,int speed1,boolean death1)
 	{
-		
+		name=name1;
 		hungry=hungry1;
 		speed=speed1;
 		death=death1;
@@ -49,8 +50,17 @@ public class animal {
 	}
 	public void print()
 	{
+		System.out.println("Name: "+name);
 		System.out.println("hungry: "+hungry);
 		System.out.println("speed: "+speed);
 		System.out.println("death: "+death);
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
