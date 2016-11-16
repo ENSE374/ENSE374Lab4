@@ -7,7 +7,6 @@ public class main{
 		System.out.println("------------------------");
 		
 		wolf w=new wolf("wolf",3,3,false,"Wooooo");
-		fox f=new fox("fox",2,2,false,"Fooooooooo");
 		hawk h=new hawk("hawk",3,4,false,"Gaaaaaaaaa");
 		
 		deer d=new deer("Deer",3,3,false,"Deeeeeee");
@@ -24,7 +23,6 @@ public class main{
 
 		d.eat(g);
 		h.print();
-		f.print();
 		w.print();
 		t.print();
 		g.print();
