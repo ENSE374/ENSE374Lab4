@@ -1,8 +1,8 @@
 
-public class tree extends plant{
+public class Tree extends Plant{
 	private int TLivingAbility=10;
 
-	tree(boolean death1,String name1)
+	Tree(boolean death1,String name1)
 	{
 		super(death1,name1);
 		TLivingAbility=10;

@@ -1,16 +1,16 @@
 
-public class hawk extends Meat{
+public class Hawk extends Carnivora{
 	private String sounds;
 	
-	public hawk(){}
+	public Hawk(){}
 	
-	public hawk(String name1,int hungry1,int speed1,boolean death1,String sounds1)
+	public Hawk(String name1,int hungry1,int speed1,boolean death1,String sounds1)
 	{
 		super(hungry1, speed1, death1,name1);
 		sounds=sounds1;
 	}
 	
-	public void eat(fox m)
+	public void eat(Fox m)
 	{
 		System.out.println(getName()+" eats "+m.getName());
 	}

@@ -1,39 +1,35 @@
+package project;
 
+import project.Bluejay;
+import project.Carnivora;
+import project.Mouse;
+import project.Rabbit;
+import project.Squirrel;
 
-public class fox extends Meat{
-	private String sounds;
+public class Fox extends Carnivora {
 	
-	public fox(String name1,int hungry1,int speed1,boolean death1,String sounds1)
+	public Fox(String name, int id,int hungry,int speed,int energy)
 	{
-		super(hungry1, speed1, death1,name1);
-		sounds=sounds1;
+		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eat(bluejay b)
+	public void eatBluejay(Bluejay b)
 	{
-		System.out.println(getName()+" eats "+b.getName());
+		super.eat(b);
 	}
 	
-	public void eat(rabbit r)
+	public void eatRabbit(Rabbit r)
 	{
-		System.out.println(getName()+" eats "+r.getName());
+		super.eat(r);
 	}
 	
-	public void eat(mouse m)
+	public void eatSquirrel(Squirrel s)
 	{
-		System.out.println(getName()+" eats "+m.getName());
+		super.eat(s);
 	}
-	
-	public void eat(squirrel s)
+	public void eatMouse(Mouse m)
 	{
-		System.out.println(getName()+" eats "+s.getName());
-	}
-	
-	
-	public void print()
-	{
-		super.print();
-		System.out.println("sounds: "+sounds);
-		System.out.println("------------------------");
+		super.eat(m);
 	}
 }
+

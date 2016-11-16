@@ -1,12 +1,18 @@
+package project;
 
-public class plant {
+
+public class Plant {
 	private boolean death;
 	private String name;
+	private int id;
+	private int energy;
 	
-	plant(boolean death1,String name1)
+	Plant(String name,int id,int energy)
 	{
-		death=death1;
-		name=name1;
+		death = false;;
+		this.name=name;
+		this.setId(id);
+		this.energy = energy;
 	}
 	
 	public boolean getDeath() {
@@ -29,6 +35,37 @@ public class plant {
 	{
 		System.out.println("Plant Name: "+name);
 		System.out.println("Death: "+death);
+		System.out.println("ID: "+ id);
 		
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void disappear()
+	{
+		if (death == true)
+		{
+			System.out.println(name+" has dead and removed from the world");
+		}
+	}
+
+	public int getEnergy() {
+		return energy;
+	}
+
+	public void setEnergy(int energy) {
+		this.energy = energy;
+	}
+	public void destroy()
+	{
+		if (death == true)
+		{
+			System.out.println(name+" has dead and removed from the world");
+		}
 	}
 }

@@ -1,21 +1,21 @@
 
-public class deer extends Herbivore{
+public class Deer extends Herbivore{
 	private String sounds;
 	
-	public deer(){}
+	public Deer(){}
 	
-	public deer(String name1,int hungry1,int speed1,boolean death1,String sounds1)
+	public Deer(String name1,int hungry1,int speed1,boolean death1,String sounds1)
 	{
 		super(hungry1, speed1, death1,name1);
 		sounds=sounds1;
 	}
 	
-	public void eat(grass g)
+	public void eat(Grass g)
 	{
 		System.out.println(getName()+" eats "+g.getName());
 	}
 	
-	public void eat(tree t)
+	public void eat(Tree t)
 	{
 		System.out.println(getName()+" eats "+t.getName());
 	}
