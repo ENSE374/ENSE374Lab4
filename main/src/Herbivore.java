@@ -1,11 +1,15 @@
+package project;
 
-public class Herbivore extends animal{
-	private int level=1;
+import project.Animal;
+import project.Plant;
+
+public class Herbivore extends Animal{
+	private int level;
 	
-	public Herbivore(int hungry1,int speed1,boolean death1,String name1)
+	public Herbivore(String name, int id,int hungry,int speed,int energy)
 	{
-		super(name1,hungry1, speed1, death1);
-		level=1;
+		super(name,id,hungry, speed,energy);
+		setLevel(1);
 	}
 	
 	public Herbivore(){}
@@ -14,7 +18,18 @@ public class Herbivore extends animal{
 	public void print()
 	{
 		super.print();
-		System.out.println("level: "+level);
+		System.out.println("Level: " +level);
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public void eat(Plant p)
+	{
+		super.eat(p);
+	}
 }

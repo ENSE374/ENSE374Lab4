@@ -1,11 +1,16 @@
+package project;
 
-public class Omnivore extends animal{
-	private int level=2;
+import project.Animal;
+import project.Herbivore;
+import project.Plant;
+
+public class Omnivore extends Animal{
+	private int level;
 	
-	public Omnivore(int hungry1,int speed1,boolean death1,String name1)
+	public Omnivore(String name, int id,int hungry,int speed,int energy)
 	{
-		super(name1,hungry1, speed1, death1);
-		level=2;
+		super(name,id,hungry, speed, energy);
+		setLevel(2);
 	}
 	
 	public Omnivore(){}
@@ -14,7 +19,22 @@ public class Omnivore extends animal{
 	public void print()
 	{
 		super.print();
-		System.out.println("level: "+level);
+		System.out.println("Level: " +level);
 	}
 
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	public void eat(Plant p)
+	{
+		super.eat(p);
+	}
+	public void eat(Herbivore h)
+	{
+		super.eat(h);
+	}
 }
