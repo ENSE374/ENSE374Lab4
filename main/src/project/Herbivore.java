@@ -1,6 +1,6 @@
 package project;
 
-public class Herbivore extends Amimal{
+public class Herbivore extends Animal{
 	private int level;
 	
 	public Herbivore(String name, int id,int hungry,int speed,int energy)
@@ -25,8 +25,8 @@ public class Herbivore extends Amimal{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public void eat(Plant p)
+	/*public void eat(Plant p)
 	{
 		super.eat(p);
-	}
+	}*/
 }

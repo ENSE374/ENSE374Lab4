@@ -4,34 +4,41 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Map {
-	private String[][] map;
+	private Animal[][] map;
 	private int maxX;
 	private int maxY;
 	public Map (int x, int y)
 	{
-		map = new String[x][y];
+		map = new Animal[x][y];
 		for (int i = 0; i < x; i++)
 		{
 			for (int j = 0; j <y; j++)
 			{
-				map[i][j] = "*";
+				map[i][j].setName("*");
 			}
 		}
 		maxX = x;
 		maxY = y;
 	}
-	public String[][] getMap() {
+	/*public String[][] getMap() {
 		return map;
-	}
-	public String getValue(int x, int y) {
-		 String a = map[x][y];
-		 return a;
+	}*/
+	public Animal getValue(int x,int y) {
+		
+		 int energy=map[x][y].getEnergy();
+		 String name = map[x][y].getName();
+		 int id=map[x][y].getId();
+		 int hungry=map[x][y].getHungry();
+		 
+
+		 
+		 return map[x][y];
 	}
 
-	public void setMap(String map[][]) {
+	/*public void setMap(String map[][]) {
 		this.map = map;
-	}
-	public void setValue(int x, int y, String value)
+	}*/
+	public void setValue(int x, int y, Animal value)
 	{
 		map[x][y] = value;
 	}
@@ -43,7 +50,7 @@ public class Map {
 		{
 			for (int j = 0; j < maxY; j++)
 			{
-				System.out.print(map[i][j]+"\t");
+				System.out.print(map[i][j].getName()+"\t");
 			}
 			System.out.println();
 		}
@@ -57,13 +64,13 @@ public class Map {
 		Random rand2 = new Random();
 		System.out.println("Please enter the number of the organism in this world: ");
 		int amount=scan.nextInt();
-		for(int k=0;k<=amount;k++)
+		for(int k=0;k<amount;k++)
 		{
 			Random rand = new Random();
 			int x = rand.nextInt(maxX);
 			int y = rand.nextInt(maxY);
 			
-			while(map[x][y]!="*")
+			while(map[x][y].getName()!="*")
 			{
 				Random randa = new Random();
 				x = randa.nextInt(maxX);
@@ -75,29 +82,29 @@ public class Map {
 			switch(RandomAnimal)
 			{
 			case 1: Wolf w=new Wolf("w",13,23,22,44);
-				setValue(x, y, w.getName());break;
+				setValue(x, y, w);break;
 			case 2: Fox f=new Fox("f",12,23,22,44);
-				setValue(x, y, f.getName());break;		
+				setValue(x, y, f);break;		
 			case 3: Hawk h=new Hawk("h",12,23,22,44);
-				setValue(x, y, h.getName());break;		
+				setValue(x, y, h);break;		
 			case 4: Deer d=new Deer("d",12,23,22,44);
-				setValue(x, y, d.getName());break;		
+				setValue(x, y, d);break;		
 			case 5: Rabbit r=new Rabbit("r",12,23,22,44);
-				setValue(x, y, r.getName());break;		
+				setValue(x, y, r);break;		
 			case 6: Squirrel s=new Squirrel("s",12,23,22,44);
-				setValue(x, y, s.getName());break;		
+				setValue(x, y, s);break;		
 			case 7: Mouse m=new Mouse("m",12,23,22,44);
-				setValue(x, y, m.getName());break;		
+				setValue(x, y, m);break;		
 			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,44);
-				setValue(x, y, gr.getName());break;		
+				setValue(x, y, gr);break;		
 			case 9: Caterpillar c=new Caterpillar("c",12,23,22,44);
-				setValue(x, y, c.getName());break;		
+				setValue(x, y, c);break;		
 			case 10: Bluejay b = new Bluejay("b",12,23,22,44);
-				setValue(x, y, b.getName());break;		
-			case 11: Grass g= new Grass("G",12,23);
-				setValue(x, y, g.getName());break;		
-			case 12: Tree t = new Tree("T",12,22);
-				setValue(x, y, t.getName());break;
+				setValue(x, y, b);break;		
+			case 11: Grass g= new Grass("G",12,0,0,0);
+				setValue(x, y, g);break;		
+			case 12: Tree t = new Tree("T",12,0,0,0);
+				setValue(x, y, t);break;
 			}
 
 		}
@@ -105,7 +112,7 @@ public class Map {
 		
 	}
 	
-	public void moving(String searchingName, int direction)
+	/*public void moving(String searchingName, int direction)
 	{
 		boolean nameFound = false;
 		int i = 0;
@@ -159,5 +166,5 @@ public class Map {
 		{
 			System.out.println("Name cannot be found");
 		}
-	}
+	}*/
 }

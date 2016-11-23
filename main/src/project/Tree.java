@@ -1,11 +1,11 @@
 package project;
 
-public class Tree extends Plant {
+public class Tree extends Animal {
 	private int GLivingAbility;
 
-	Tree(String name,int id,int energy)
+	Tree(String name,int id,int energy,int hungry,int speed)
 	{
-		super(name,id,energy);
+		super(name,id,hungry,speed,energy);
 		setGLivingAbility(10);
 	}
 
@@ -23,7 +23,7 @@ public class Tree extends Plant {
 		{
 			setDeath(true);
 		}
-		destroy();
+		//destroy();
 	}
 	public void print()
 	{

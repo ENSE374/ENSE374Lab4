@@ -1,6 +1,6 @@
 package project;
 
-public class Omnivore extends Amimal{
+public class Omnivore extends Animal{
 	private int level;
 	
 	public Omnivore(String name, int id,int hungry,int speed,int energy)
@@ -25,10 +25,10 @@ public class Omnivore extends Amimal{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public void eat(Plant p)
+	/*public void eat(Plant p)
 	{
 		super.eat(p);
-	}
+	}*/
 	public void eat(Herbivore h)
 	{
 		super.eat(h);

@@ -1,6 +1,6 @@
 package project;
 
-public class Carnivora extends Amimal{
+public class Carnivora extends Animal{
 	private int level;
 	
 	public Carnivora(String name, int id,int hungry,int speed,int energy)

@@ -1,7 +1,7 @@
 package project;
 
 
-public class Plant {
+/*public class Plant {
 	private boolean death;
 	private String name;
 	private int id;
@@ -68,4 +68,4 @@ public class Plant {
 			System.out.println(name+" has dead and removed from the world");
 		}
 	}
-}
+}*/

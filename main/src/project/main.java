@@ -36,7 +36,7 @@ public class main{
 				System.out.println("Please enter the direction: \n 1 for up \n 2 for down \n 3 for left \n 4 for right");
 				int direction = scan.nextInt();
 				
-				map.moving(inputName, direction);
+				//map.moving(inputName, direction);
 				map.printMap();
 			}
 			else if (selection != 0)
