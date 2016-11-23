@@ -50,6 +50,7 @@ package project;
 	{
 		if (death == true)
 		{
+		
 			System.out.println(name+" has dead and removed from the world");
 		}
 	}

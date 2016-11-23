@@ -126,11 +126,15 @@ public class Map {
 				if (map[i][j].getName().equals(searchingName))
 				{
 					nameFound = true;
-					break; // element found 
+					break;
+					
 				}
-				//System.out.print(j);
+					
 			}
-			//System.out.print(i);
+			if(nameFound = true)
+			{
+				break;
+			}//System.out.print(j);
 		}
 		if (nameFound == true)
 		{
@@ -167,8 +171,9 @@ public class Map {
 			{
 				System.out.println("Cannot move to this direction because it is out of border");
 			}
+			//System.out.print(i);
 		}
-		else
+		if(nameFound == false)
 		{
 			System.out.println("Name cannot be found");
 		}
