@@ -8,7 +8,7 @@ public class main{
 	public static void main (String[] args)
 	{
 
-		Map map = new Map(5,5);
+		Map map = new Map(10,10);
 		int selection;
 		/////////////////////////////////////////////////////////////////////////
 		///////////ask for the selection/////////////
@@ -18,7 +18,7 @@ public class main{
 			System.out.println("Saskatchewan prairies........");
 			System.out.println("------------------------");
 			System.out.println("Please enter a selection:");
-			System.out.println("1 for inserting a new element in the environment");
+			System.out.println("Press <1> for setting organism in the environment");
 			System.out.println("2 for moving");
 			System.out.println("0 for exit the program");
 			selection = scan.nextInt();

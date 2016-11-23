@@ -53,75 +53,53 @@ public class Map {
 	public void inserting()
 	{
 		Scanner scan = new Scanner(System.in);
-		String name;
-		int id=0;
-		int hungry=0;
-		int speed=0;
-		int energy=0;
 		
-		Random rand = new Random();
-		int x = rand.nextInt(maxX);
-		int y = rand.nextInt(maxY);
-		
-		///////////////////////////////////////
-		// some error coordinate such that both animals or plants may be the same, may check follow
-		////////////////////////////////////
-		System.out.println("Please enter an aminal or a plant:");
-		System.out.println("1 for wolf:");
-		System.out.println("2 for fox:");
-		System.out.println("3 for hawk:");
-		System.out.println("4 for deer:");
-		System.out.println("5 for rabbit:");
-		System.out.println("6 for squirrel:");
-		System.out.println("7 for mouse:");
-		System.out.println("8 for grasshopper:");
-		System.out.println("9 for caterpillar:");
-		System.out.println("10 for bluejay:");
-		System.out.println("11 for grass:");
-		System.out.println("12 for tree:");
-		int number = scan.nextInt();
-		
-		System.out.println("Please enter a name:");
-		name = scan.next();
-		System.out.println("Please enter an id:");
-		id = scan.nextInt();
-		System.out.println("Please enter a energy:");
-		energy = scan.nextInt();
-		if (number != 11 && number !=12)
+		Random rand2 = new Random();
+		System.out.println("Please enter the number of the organism in this world: ");
+		int amount=scan.nextInt();
+		for(int k=0;k<=amount;k++)
 		{
-			System.out.println("Please enter a hungry:");
-			hungry = scan.nextInt();
-			System.out.println("Please enter a speed:");
-			speed = scan.nextInt();
-		}
-		
-		
-		switch(number)
-		{
-		case 1: Wolf w=new Wolf(name,id,hungry,speed,energy);
-			setValue(x, y, w.getName());break;
-		case 2: Fox f=new Fox(name,id,hungry,speed,energy);
-			setValue(x, y, f.getName());break;		
-		case 3: Hawk h=new Hawk(name,id,hungry,speed,energy);
-			setValue(x, y, h.getName());break;		
-		case 4: Deer d=new Deer(name,id,hungry,speed,energy);
-			setValue(x, y, d.getName());break;		
-		case 5: Rabbit r=new Rabbit(name,id,hungry,speed,energy);
-			setValue(x, y, r.getName());break;		
-		case 6: Squirrel s=new Squirrel(name,id,hungry,speed,energy);
-			setValue(x, y, s.getName());break;		
-		case 7: Mouse m=new Mouse(name,id,hungry,speed,energy);
-			setValue(x, y, m.getName());break;		
-		case 8: Grasshopper gr=new Grasshopper(name,id,hungry,speed,energy);
-			setValue(x, y, gr.getName());break;		
-		case 9: Caterpillar c=new Caterpillar(name,id,hungry,speed,energy);
-			setValue(x, y, c.getName());break;		
-		case 10: Bluejay b = new Bluejay(name,id,hungry,speed,energy);
-			setValue(x, y, b.getName());break;		
-		case 11: Grass g= new Grass(name,id,energy);
-			setValue(x, y, g.getName());break;		
-		case 12: Tree t = new Tree(name,id,energy);
-			setValue(x, y, t.getName());break;	
+			Random rand = new Random();
+			int x = rand.nextInt(maxX);
+			int y = rand.nextInt(maxY);
+			
+			while(map[x][y]!="*")
+			{
+				Random randa = new Random();
+				x = randa.nextInt(maxX);
+				y = randa.nextInt(maxY);
+			}
+			
+			
+			int RandomAnimal = rand2.nextInt(12);
+			switch(RandomAnimal)
+			{
+			case 1: Wolf w=new Wolf("w",13,23,22,44);
+				setValue(x, y, w.getName());break;
+			case 2: Fox f=new Fox("f",12,23,22,44);
+				setValue(x, y, f.getName());break;		
+			case 3: Hawk h=new Hawk("h",12,23,22,44);
+				setValue(x, y, h.getName());break;		
+			case 4: Deer d=new Deer("d",12,23,22,44);
+				setValue(x, y, d.getName());break;		
+			case 5: Rabbit r=new Rabbit("r",12,23,22,44);
+				setValue(x, y, r.getName());break;		
+			case 6: Squirrel s=new Squirrel("s",12,23,22,44);
+				setValue(x, y, s.getName());break;		
+			case 7: Mouse m=new Mouse("m",12,23,22,44);
+				setValue(x, y, m.getName());break;		
+			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,44);
+				setValue(x, y, gr.getName());break;		
+			case 9: Caterpillar c=new Caterpillar("c",12,23,22,44);
+				setValue(x, y, c.getName());break;		
+			case 10: Bluejay b = new Bluejay("b",12,23,22,44);
+				setValue(x, y, b.getName());break;		
+			case 11: Grass g= new Grass("G",12,23);
+				setValue(x, y, g.getName());break;		
+			case 12: Tree t = new Tree("T",12,22);
+				setValue(x, y, t.getName());break;
+			}
+
 		}
 		
 		
