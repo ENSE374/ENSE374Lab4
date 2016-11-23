@@ -14,6 +14,7 @@ public class Map {
 		{
 			for (int j = 0; j <y; j++)
 			{
+				map[i][j]=new Animal();
 				map[i][j].setName("*");
 			}
 		}
@@ -29,9 +30,7 @@ public class Map {
 		 String name = map[x][y].getName();
 		 int id=map[x][y].getId();
 		 int hungry=map[x][y].getHungry();
-		 
-
-		 
+		
 		 return map[x][y];
 	}
 
@@ -64,13 +63,14 @@ public class Map {
 		Random rand2 = new Random();
 		System.out.println("Please enter the number of the organism in this world: ");
 		int amount=scan.nextInt();
-		for(int k=0;k<amount;k++)
+		int k=0;
+		while(k<amount)
 		{
 			Random rand = new Random();
 			int x = rand.nextInt(maxX);
 			int y = rand.nextInt(maxY);
 			
-			while(map[x][y].getName()!="*")
+			while(!map[x][y].getName().equals("*"))
 			{
 				Random randa = new Random();
 				x = randa.nextInt(maxX);
@@ -107,12 +107,13 @@ public class Map {
 				setValue(x, y, t);break;
 			}
 
+			k++;
 		}
 		
 		
 	}
 	
-	/*public void moving(String searchingName, int direction)
+	public void moving(String searchingName, int direction)
 	{
 		boolean nameFound = false;
 		int i = 0;
@@ -122,14 +123,14 @@ public class Map {
 			for (j = 0;j < maxY; j++)
 			{
 
-				if (searchingName == getValue(i,j))
+				if (map[i][j].getName().equals(searchingName))
 				{
 					nameFound = true;
 					break; // element found 
 				}
-				System.out.print(j);
+				//System.out.print(j);
 			}
-			System.out.print(i);
+			//System.out.print(i);
 		}
 		if (nameFound == true)
 		{
@@ -137,25 +138,30 @@ public class Map {
 			if (direction == 1 && i-1 >=0)
 			{
 				map[i-1][j] = map[i][j];
-				map[i][j] = "*";
+				
+				map[i][j]= new Animal();
+				map[i][j].setName("*");
 			}
 			// going down 
 			else if (direction == 2 && i+1< maxX)
 			{
 				map[i+1][j] = map[i][j];
-				map[i][j] = "*";
+				map[i][j]= new Animal();
+				map[i][j].setName("*");
 			}
 			// going left
 			else if (direction == 3 && j-1 >=0)
 			{
 				map[i][j-1] = map[i][j];
-				map[i][j] = "*";
+				map[i][j]= new Animal();
+				map[i][j].setName("*");
 			}
 			// going right
-			else if (direction == 4 && j+1 <= maxY)
+			else if (direction == 4 && j+1 < maxY)
 			{
 				map[i][j+1] = map[i][j];
-				map[i][j] = "*";
+				map[i][j]= new Animal();
+				map[i][j].setName("*");
 			}
 			else
 			{
@@ -166,5 +172,5 @@ public class Map {
 		{
 			System.out.println("Name cannot be found");
 		}
-	}*/
+	}
 }
