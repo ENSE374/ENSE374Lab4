@@ -131,7 +131,7 @@ public class Map {
 				}
 					
 			}
-			if(nameFound = true)
+			if(nameFound == true)
 			{
 				break;
 			}//System.out.print(j);
