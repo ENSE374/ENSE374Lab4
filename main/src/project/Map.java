@@ -179,7 +179,6 @@ public class Map {
 			if (direction == 1 && i-movesteps >=0)
 			{
 				map[i-movesteps][j] = map[i][j];
-				
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
 				System.out.println(map[i-movesteps][j].getName()+" walks "+movesteps+" steps in the up direction.");
@@ -216,7 +215,8 @@ public class Map {
 		}
 		if(nameFound == false)
 		{
-			System.out.println("Sunny weather, the animals are enjoying the sunshine.");
+			System.out.println("Sunny weather, some animals are enjoying the sunshine.");
 		}
 	}
+	
 }

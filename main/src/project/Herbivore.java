@@ -25,8 +25,8 @@ public class Herbivore extends Animal{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	/*public void eat(Plant p)
+	public void eat(Animal a)
 	{
-		super.eat(p);
-	}*/
+		super.eat(a);
+	}
 }

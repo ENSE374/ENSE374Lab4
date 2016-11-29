@@ -7,13 +7,16 @@ public class Wolf extends Carnivora {
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eatDeer(Deer d)
+	public void eat(Animal a)
 	{
-		super.eat(d);
-	}
-	
-	public void eatRabbit(Rabbit r)
-	{
-		super.eat(r);
+		if(a.getName().equals("d") || a.getName().equals("r"))
+		{
+			
+			super.eat(a);
+		}
+		else{
+			System.out.println("Wolf meets "+a.getName());
+		}
+		
 	}
 }
