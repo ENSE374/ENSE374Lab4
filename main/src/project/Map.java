@@ -78,7 +78,7 @@ public class Map {
 			}
 			
 			
-			int RandomAnimal = rand2.nextInt(12);
+			int RandomAnimal = rand2.nextInt(12)+1;
 			switch(RandomAnimal)
 			{
 			case 1: Wolf w=new Wolf("w",13,23,22,44);
@@ -113,9 +113,40 @@ public class Map {
 		
 	}
 	
-	public void moving(String searchingName, int direction)
+	public void moving()
 	{
 		boolean nameFound = false;
+		String searchingName1="";
+		Random rand = new Random();
+		int RandomAnimal = rand.nextInt(12)+1;
+		switch(RandomAnimal)
+		{
+		case 1: searchingName1="w";
+			break;
+		case 2: searchingName1="f";
+			break;		
+		case 3: searchingName1="h";
+			break;		
+		case 4: searchingName1="d";
+			break;		
+		case 5: searchingName1="r";
+			break;		
+		case 6: searchingName1="s";
+			break;		
+		case 7: searchingName1="m";
+			break;		
+		case 8: searchingName1="gr";
+			break;		
+		case 9: searchingName1="c";
+			break;		
+		case 10: searchingName1="b";
+			break;		
+		case 11: searchingName1="G";
+			break;		
+		case 12: searchingName1="T";
+			break;
+		}
+		
 		int i = 0;
 		int j = 0;
 		for (i = 0; i < maxX;i++)
@@ -123,7 +154,7 @@ public class Map {
 			for (j = 0;j < maxY; j++)
 			{
 
-				if (map[i][j].getName().equals(searchingName))
+				if (map[i][j].getName().equals(searchingName1))
 				{
 					nameFound = true;
 					break;
@@ -136,46 +167,56 @@ public class Map {
 				break;
 			}//System.out.print(j);
 		}
+		
 		if (nameFound == true)
 		{
+			Random rand2 = new Random();
+			int direction=rand2.nextInt(4)+1;
+			
+			Random rand3 = new Random();
+			int movesteps=rand3.nextInt(4)+1;
 			// going up
-			if (direction == 1 && i-1 >=0)
+			if (direction == 1 && i-movesteps >=0)
 			{
-				map[i-1][j] = map[i][j];
+				map[i-movesteps][j] = map[i][j];
 				
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
+				System.out.println(map[i-movesteps][j].getName()+" walks "+movesteps+" steps in the up direction.");
 			}
 			// going down 
-			else if (direction == 2 && i+1< maxX)
+			else if (direction == 2 && i+movesteps< maxX)
 			{
-				map[i+1][j] = map[i][j];
+				map[i+movesteps][j] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
+				System.out.println(map[i+movesteps][j].getName()+" walks "+movesteps+" steps in the down direction.");
 			}
 			// going left
-			else if (direction == 3 && j-1 >=0)
+			else if (direction == 3 && j-movesteps >=0)
 			{
-				map[i][j-1] = map[i][j];
+				map[i][j-movesteps] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
+				System.out.println(map[i][j-movesteps].getName()+" walks "+movesteps+" steps in the left direction.");
 			}
 			// going right
-			else if (direction == 4 && j+1 < maxY)
+			else if (direction == 4 && j+movesteps < maxY)
 			{
-				map[i][j+1] = map[i][j];
+				map[i][j+movesteps] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
+				System.out.println(map[i][j+movesteps].getName()+" walks "+movesteps+" steps in the right direction.");
 			}
 			else
 			{
-				System.out.println("Cannot move to this direction because it is out of border");
+				System.out.println("The animal in the position row="+i +",col="+j+" is taking a break.");
 			}
 			//System.out.print(i);
 		}
 		if(nameFound == false)
 		{
-			System.out.println("Name cannot be found");
+			System.out.println("Sunny weather, the animals are enjoying the sunshine.");
 		}
 	}
 }
