@@ -8,29 +8,17 @@ public class Mouse extends Herbivore{
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eatGrass(Grass g)
+	public void eat(Animal a)
 	{
-		super.eat(g);
-		if (getHungry() <50)
+		if(a.getName().equals("T") || a.getName().equals("G"))
 		{
-			g.grassDecress();
-
-			System.out.println(getName()+" ate "+g.getName());
+			
+			super.eat(a);
 		}
-
-	}
-	
-	public void eatTree(Tree t)
-	{
-		super.eat(t);
-		if (getHungry() <50)
-		{
-			t.TreeDecress();
-
-			System.out.println(getName()+" ate "+t.getName());
+		else{
+			System.out.println("Mouse meets "+a.getName());
 		}
-
-
+		
 	}
 
 }
