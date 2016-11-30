@@ -3,12 +3,14 @@ package project;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class main{
 	static Scanner scan = new Scanner(System.in);
 	public static void main (String[] args)
 	{
-
-		Map map = new Map(5,5);
+		int maxX = 5;
+		int maxY = 5;
+		Map map = new Map(maxX,maxY);
 		int selection;
 		
 	
@@ -45,8 +47,10 @@ public class main{
 					{
 						map.moving();
 						
+						
 					}
 					
+					map.starvation();
 					map.printMap();
 					System.out.println("-------------------");
 					System.out.println("                   ");

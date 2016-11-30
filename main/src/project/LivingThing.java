@@ -117,9 +117,10 @@ public class LivingThing {
 		if (hungry <50)
 		{
 			a.setDeath(true);
-			
+			setEnergy(a.getEnergy() + getEnergy());
 			System.out.println(name+" meets "+a.getName()+",and eats it cruelly!");
 			a.disappear();
+			
 			return true;
 		}
 		else

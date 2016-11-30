@@ -103,9 +103,9 @@ public class Map {
 				setValue(x, y, c);break;		
 			case 10: Bluejay b = new Bluejay("b",12,23,22,44,x,y);
 				setValue(x, y, b);break;		
-			case 11: Grass g= new Grass("G",12,0,0,0,x,y);
+			case 11: Grass g= new Grass("G",12,0,0,10,x,y);
 				setValue(x, y, g);break;		
-			case 12: Tree t = new Tree("T",12,0,0,0,x,y);
+			case 12: Tree t = new Tree("T",12,0,0,10,x,y);
 				setValue(x, y, t);break;
 			}
 
@@ -310,4 +310,28 @@ public class Map {
 		}
 	}
 	
+	
+	
+	public void starvation()
+	{
+		for (int i = 0; i <maxX; i++)
+		{
+			for (int j = 0; j<maxY; j++)
+			{
+				if (!map[i][j].getName().equals("*") && !map[i][j].getName().equals("T") && !map[i][j].getName().equals("G"))
+				{
+					map[i][j].setEnergy(map[i][j].getEnergy() -5);
+					System.out.println(map[i][j].getName() + "'s energy is "+ map[i][j].getEnergy()+ " ." );
+					if (map[i][j].getEnergy() <=0)
+					{
+						map[i][j].setDeath(true);
+						System.out.println(map[i][j].getName() + "died due to starvation." );
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+					}
+				}
+
+			}
+		}
+	}
 }
