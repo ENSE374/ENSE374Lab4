@@ -1,11 +1,11 @@
 package project;
 
-public class Grass extends Animal {
+public class Grass extends LivingThing {
 	private int GLivingAbility;
 
-	Grass(String name,int id,int energy,int hungry,int speed)
+	Grass(String name,int id,int energy,int hungry,int speed,int xPosition, int yPosition)
 	{
-		super(name,id,hungry,speed,energy);
+		super(name,id,hungry,speed,energy,xPosition,yPosition);
 		setGLivingAbility(2);
 	}
 

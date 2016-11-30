@@ -1,11 +1,11 @@
 package project;
 
-public class Omnivore extends Animal{
+public class Omnivore extends LivingThing{
 	private int level;
 	
-	public Omnivore(String name, int id,int hungry,int speed,int energy)
+	public Omnivore(String name, int id,int hungry,int speed,int energy,int xPosition,int yPosition)
 	{
-		super(name,id,hungry, speed, energy);
+		super(name,id,hungry, speed, energy,xPosition,yPosition);
 		setLevel(2);
 	}
 	

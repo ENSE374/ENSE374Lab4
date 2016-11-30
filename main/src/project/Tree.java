@@ -1,11 +1,11 @@
 package project;
 
-public class Tree extends Animal {
+public class Tree extends LivingThing {
 	private int GLivingAbility;
 
-	Tree(String name,int id,int energy,int hungry,int speed)
+	Tree(String name,int id,int energy,int hungry,int speed,int xPosition, int yPosition)
 	{
-		super(name,id,hungry,speed,energy);
+		super(name,id,hungry,speed,energy,xPosition,yPosition);
 		setGLivingAbility(10);
 	}
 

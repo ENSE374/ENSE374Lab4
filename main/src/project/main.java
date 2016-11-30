@@ -8,9 +8,10 @@ public class main{
 	public static void main (String[] args)
 	{
 
-		Map map = new Map(10,10);
+		Map map = new Map(5,5);
 		int selection;
 		
+	
 		do
 		{
 			System.out.println("Saskatchewan prairies........");
@@ -44,11 +45,13 @@ public class main{
 					{
 						map.moving();
 					}
+					map.printMap();
 					System.out.println("-------------------");
 					System.out.println("                   ");
+					
 				}
 				
-				map.printMap();
+				//map.printMap();
 			}
 			else if (selection != 0)
 			{

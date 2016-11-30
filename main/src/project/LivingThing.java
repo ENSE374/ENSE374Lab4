@@ -1,14 +1,17 @@
 package project;
 
-public class Animal {
+
+public class LivingThing {
 	private String name;
 	private int id;
 	private int hungry;//ept
 	private int speed;//ept
 	private boolean death;
 	private int energy;//ept
+	private int xPosition;
+	private int yPosition;
 	
-	public Animal()
+	public LivingThing()
 	{
 		 name=null;
 	   	 id=0;
@@ -18,7 +21,7 @@ public class Animal {
 		 energy=0;//ept
 	}
 	
-	public Animal(String name, int id,int hungry,int speed,int energy)
+	public LivingThing(String name, int id,int hungry,int speed,int energy,int xPosition,int yPosition)
 	{
 		this.hungry=hungry;
 		this.speed=speed;
@@ -26,6 +29,8 @@ public class Animal {
 		this.name =name;
 		this.id = id;
 		this.energy = energy;
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
 	}
 
 	
@@ -65,6 +70,8 @@ public class Animal {
 		System.out.println("hungry: "+hungry);
 		System.out.println("speed: "+speed);
 		System.out.println("death: "+death);
+		System.out.println("x: "+xPosition);
+		System.out.println("y: "+yPosition);
 
 	}
 
@@ -91,16 +98,21 @@ public class Animal {
 	public void setEnergy(int energy) {
 		this.energy = energy;
 	}
-	public void disappear()
+	public void disappear(/*Map m*/)
 	{
+		
 		if ( death == true)
 		{
 			System.out.println(name+" has dead and removed from the world");
+			
+			int x= getxPosition();
+			int y= getyPosition();
+			//m.setValue(x, y, object);
 		}
 	}
 
 	
-	public void eat(Animal a)
+	public boolean eat(LivingThing a)
 	{
 		if (hungry <50)
 		{
@@ -108,10 +120,12 @@ public class Animal {
 			
 			System.out.println(name+" meets "+a.getName()+",and eats it cruelly!");
 			a.disappear();
+			return true;
 		}
 		else
 		{
 			System.out.println(name+" cannot eat "+a.getName());
+			return false;
 		}
 	}
 	
@@ -175,6 +189,22 @@ public class Animal {
 			
 			System.out.println(name+" has dead and removed from the world");
 		}
+	}
+
+	public int getxPosition() {
+		return xPosition;
+	}
+
+	public void setxPosition(int xPosition) {
+		this.xPosition = xPosition;
+	}
+
+	public int getyPosition() {
+		return yPosition;
+	}
+
+	public void setyPosition(int yPosition) {
+		this.yPosition = yPosition;
 	}
 	
 }

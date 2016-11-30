@@ -1,11 +1,11 @@
 package project;
 
-public class Carnivora extends Animal{
+public class Carnivora extends LivingThing{
 	private int level;
 	
-	public Carnivora(String name, int id,int hungry,int speed,int energy)
+	public Carnivora(String name, int id,int hungry,int speed,int energy,int xPosition,int yPosition)
 	{
-		super(name,id,hungry, speed, energy);
+		super(name,id,hungry, speed, energy,xPosition,yPosition);
 		setLevel(3);
 	}
 	
@@ -25,5 +25,12 @@ public class Carnivora extends Animal{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-
+	
+	public boolean eat(LivingThing a)
+	{
+		if (super.eat(a)){
+			return true;
+		}
+		return false;
+	}
 }

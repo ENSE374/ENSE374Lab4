@@ -4,17 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Map {
-	private Animal[][] map;
+	private LivingThing[][] map;
 	private int maxX;
 	private int maxY;
 	public Map (int x, int y)
 	{
-		map = new Animal[x][y];
+		map = new LivingThing[x][y];
 		for (int i = 0; i < x; i++)
 		{
 			for (int j = 0; j <y; j++)
 			{
-				map[i][j]=new Animal();
+				map[i][j]=new LivingThing();
 				map[i][j].setName("*");
 			}
 		}
@@ -24,7 +24,7 @@ public class Map {
 	/*public String[][] getMap() {
 		return map;
 	}*/
-	public Animal getValue(int x,int y) {
+	public LivingThing getValue(int x,int y) {
 		
 		 int energy=map[x][y].getEnergy();
 		 String name = map[x][y].getName();
@@ -37,9 +37,11 @@ public class Map {
 	/*public void setMap(String map[][]) {
 		this.map = map;
 	}*/
-	public void setValue(int x, int y, Animal value)
+	public void setValue(int x, int y, LivingThing object)
 	{
-		map[x][y] = value;
+		map[x][y] = object;
+		object.setxPosition(x);
+		object.setyPosition(y);
 	}
 	
 	public void printMap()
@@ -81,29 +83,29 @@ public class Map {
 			int RandomAnimal = rand2.nextInt(12)+1;
 			switch(RandomAnimal)
 			{
-			case 1: Wolf w=new Wolf("w",13,23,22,44);
+			case 1: Wolf w=new Wolf("w",13,23,22,44,x,y);
 				setValue(x, y, w);break;
-			case 2: Fox f=new Fox("f",12,23,22,44);
+			case 2: Fox f=new Fox("f",12,23,22,44,x,y);
 				setValue(x, y, f);break;		
-			case 3: Hawk h=new Hawk("h",12,23,22,44);
+			case 3: Hawk h=new Hawk("h",12,23,22,44,x,y);
 				setValue(x, y, h);break;		
-			case 4: Deer d=new Deer("d",12,23,22,44);
+			case 4: Deer d=new Deer("d",12,23,22,44,x,y);
 				setValue(x, y, d);break;		
-			case 5: Rabbit r=new Rabbit("r",12,23,22,44);
+			case 5: Rabbit r=new Rabbit("r",12,23,22,44,x,y);
 				setValue(x, y, r);break;		
-			case 6: Squirrel s=new Squirrel("s",12,23,22,44);
+			case 6: Squirrel s=new Squirrel("s",12,23,22,44,x,y);
 				setValue(x, y, s);break;		
-			case 7: Mouse m=new Mouse("m",12,23,22,44);
+			case 7: Mouse m=new Mouse("m",12,23,22,44,x,y);
 				setValue(x, y, m);break;		
-			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,44);
+			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,44,x,y);
 				setValue(x, y, gr);break;		
-			case 9: Caterpillar c=new Caterpillar("c",12,23,22,44);
+			case 9: Caterpillar c=new Caterpillar("c",12,23,22,44,x,y);
 				setValue(x, y, c);break;		
-			case 10: Bluejay b = new Bluejay("b",12,23,22,44);
+			case 10: Bluejay b = new Bluejay("b",12,23,22,44,x,y);
 				setValue(x, y, b);break;		
-			case 11: Grass g= new Grass("G",12,0,0,0);
+			case 11: Grass g= new Grass("G",12,0,0,0,x,y);
 				setValue(x, y, g);break;		
-			case 12: Tree t = new Tree("T",12,0,0,0);
+			case 12: Tree t = new Tree("T",12,0,0,0,x,y);
 				setValue(x, y, t);break;
 			}
 
@@ -181,30 +183,40 @@ public class Map {
 			// going up
 			if (direction == 1 && i-movesteps >=0)
 			{
+				
 				if(map[i-movesteps][j].getName().equals("*"))
 				{
-				map[i-movesteps][j] = map[i][j];
-				map[i][j]= new Animal();
-				map[i][j].setName("*");
+					map[i-movesteps][j] = map[i][j];
+					map[i][j]= new LivingThing();
+					map[i][j].setName("*");
 				System.out.println(map[i-movesteps][j].getName()+" walks "+movesteps+" steps in the up direction.");
 				}
 				else
 				{
-					map[i][j].eat(map[i-movesteps][j]);
+					if (map[i][j].eat(map[i-movesteps][j]))
+					{
+						
+					}
+					map[i-movesteps][j] = map[i][j];
+					map[i][j]= new LivingThing();
+					map[i][j].setName("*");
+					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
+					//map[i][j].eat(map[i-movesteps][j]);
 				}
-				}
+			}
 			// going down 
 			else if (direction == 2 && i+movesteps< maxX)
 			{
 				if(map[i+movesteps][j].getName().equals("*"))
 				{
 				map[i+movesteps][j] = map[i][j];
-				map[i][j]= new Animal();
+				map[i][j]= new LivingThing();
 				map[i][j].setName("*");
 				System.out.println(map[i+movesteps][j].getName()+" walks "+movesteps+" steps in the down direction.");
 				}
 				else
-				{
+				{		
+					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
 					map[i][j].eat(map[i+movesteps][j]);
 				}
 				}
@@ -214,12 +226,13 @@ public class Map {
 				if(map[i][j-movesteps].getName().equals("*"))
 				{
 				map[i][j-movesteps] = map[i][j];
-				map[i][j]= new Animal();
+				map[i][j]= new LivingThing();
 				map[i][j].setName("*");
 				System.out.println(map[i][j-movesteps].getName()+" walks "+movesteps+" steps in the left direction.");
 				}
 				else
 				{
+					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
 					map[i][j].eat(map[i][j-movesteps]);
 				}
 				}
@@ -229,13 +242,14 @@ public class Map {
 				if(map[i][j+movesteps].getName().equals("*"))
 				{
 				map[i][j+movesteps] = map[i][j];
-				map[i][j]= new Animal();
+				map[i][j]= new LivingThing();
 				map[i][j].setName("*");
 				System.out.println(map[i][j+movesteps].getName()+" walks "+movesteps+" steps in the right direction.");
 			
 				}
 				else
 				{
+					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
 					map[i][j].eat(map[i][j+movesteps]);
 				}
 				}
