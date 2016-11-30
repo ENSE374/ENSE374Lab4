@@ -167,8 +167,11 @@ public class Map {
 				break;
 			}//System.out.print(j);
 		}
-		
-		if (nameFound == true)
+		if(searchingName1.equals("G")||searchingName1.equals("T"))
+		{
+			System.out.print("Plant grows well after the rain.");
+		}
+		else if (nameFound == true)
 		{
 			Random rand2 = new Random();
 			int direction=rand2.nextInt(4)+1;
@@ -178,35 +181,64 @@ public class Map {
 			// going up
 			if (direction == 1 && i-movesteps >=0)
 			{
+				if(map[i-movesteps][j].getName().equals("*"))
+				{
 				map[i-movesteps][j] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
 				System.out.println(map[i-movesteps][j].getName()+" walks "+movesteps+" steps in the up direction.");
-			}
+				}
+				else
+				{
+					map[i][j].eat(map[i-movesteps][j]);
+				}
+				}
 			// going down 
 			else if (direction == 2 && i+movesteps< maxX)
 			{
+				if(map[i+movesteps][j].getName().equals("*"))
+				{
 				map[i+movesteps][j] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
 				System.out.println(map[i+movesteps][j].getName()+" walks "+movesteps+" steps in the down direction.");
-			}
+				}
+				else
+				{
+					map[i][j].eat(map[i+movesteps][j]);
+				}
+				}
 			// going left
 			else if (direction == 3 && j-movesteps >=0)
 			{
+				if(map[i][j-movesteps].getName().equals("*"))
+				{
 				map[i][j-movesteps] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
 				System.out.println(map[i][j-movesteps].getName()+" walks "+movesteps+" steps in the left direction.");
-			}
+				}
+				else
+				{
+					map[i][j].eat(map[i][j-movesteps]);
+				}
+				}
 			// going right
 			else if (direction == 4 && j+movesteps < maxY)
 			{
+				if(map[i][j+movesteps].getName().equals("*"))
+				{
 				map[i][j+movesteps] = map[i][j];
 				map[i][j]= new Animal();
 				map[i][j].setName("*");
 				System.out.println(map[i][j+movesteps].getName()+" walks "+movesteps+" steps in the right direction.");
-			}
+			
+				}
+				else
+				{
+					map[i][j].eat(map[i][j+movesteps]);
+				}
+				}
 			else
 			{
 				System.out.println("The animal in the position row="+i +",col="+j+" is taking a break.");
