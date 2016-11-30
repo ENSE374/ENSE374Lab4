@@ -8,16 +8,17 @@ public class Caterpillar extends Herbivore{
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eatTree(Tree t)
+	public void eat(Animal a)
 	{
-		super.eat(t);
-		if (getHungry() <50)
+		if(a.getName().equals("T"))
 		{
-			t.TreeDecress();
-
-			System.out.println(getName()+" ate "+t.getName());
+			
+			super.eat(a);
 		}
-
+		else{
+			System.out.println("Caterpillar meets "+a.getName());
+		}
+		
 	}
 
 }
