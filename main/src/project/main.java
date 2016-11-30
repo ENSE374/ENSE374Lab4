@@ -10,8 +10,20 @@ public class main{
 
 		Map map = new Map(10,10);
 		int selection;
+		/////////////////////////////////////////////////////////////////////////
+		///////////ask for the selection/////////////
+
+		Wolf w=new Wolf("w",13,23,22,44);
+		Fox f=new Fox("f",12,23,22,44);
+		Squirrel s=new Squirrel("s",12,23,22,44);
+		Deer d=new Deer("d",12,23,22,44);
+		Grass g= new Grass("G",12,0,0,0);
+		Mouse m=new Mouse("m",12,23,22,44);
+		Hawk h=new Hawk("h",12,23,22,44);
 		
-		do
+		w.eat(s);
+		s.print();
+		/*do
 		{
 			System.out.println("Saskatchewan prairies........");
 			System.out.println("------------------------");
@@ -58,7 +70,7 @@ public class main{
 			{
 				break;
 			}
-		}while (true);
+		}while (true);*/
 	}
 	
 }

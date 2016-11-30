@@ -8,17 +8,28 @@ public class Deer extends Herbivore{
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eat(Animal a)
+	public void eatGrass(Grass g)
 	{
-		if(a.getName().equals("G") || a.getName().equals("T"))
+		super.eat(g);
+		if (getHungry() <50)
 		{
-			
-			super.eat(a);
+			g.grassDecress();
+
+			System.out.println(getName()+" ate "+g.getName());
 		}
-		else{
-			System.out.println("Deer meets "+a.getName());
+
+	}
+	
+	public void eatTree(Tree t)
+	{
+		super.eat(t);
+		if (getHungry() <50)
+		{
+			t.TreeDecress();
+
+			System.out.println(getName()+" ate "+t.getName());
 		}
-		
+
 	}
 
 }

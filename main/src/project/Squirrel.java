@@ -9,17 +9,16 @@ public class Squirrel extends Herbivore{
 	}
 	
 	
-	public void eat(Animal a)
+	public void eatTree(Tree t)
 	{
-		if(a.getName().equals("T"))
+		super.eat(t);
+		if (getHungry() <50)
 		{
-			
-			super.eat(a);
+			t.TreeDecress();
+
+			System.out.println(getName()+" ate "+t.getName());
 		}
-		else{
-			System.out.println("Squirrel meets "+a.getName());
-		}
-		
+
 	}
 
 }

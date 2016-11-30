@@ -6,17 +6,26 @@ public class Bluejay extends Omnivore{
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eat(Animal a)
+	public void eatGrass(Grass g)
 	{
-		if(a.getName().equals("c") || a.getName().equals("g")|| a.getName().equals("T"))
+		super.eat(g);
+		if (getHungry() <50)
 		{
-			
-			super.eat(a);
+			g.grassDecress();
+
+			System.out.println(getName()+" ate "+g.getName());
 		}
-		else{
-			System.out.println("Bluejay meets "+a.getName());
-		}
-		
+
+	}
+	
+	public void eatGrasshopper(Grasshopper g)
+	{
+		super.eat(g);
+	}
+	
+	public void eatCaterpillar(Caterpillar c)
+	{
+		super.eat(c);
 	}
 	
 }

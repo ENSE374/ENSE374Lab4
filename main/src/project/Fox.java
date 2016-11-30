@@ -7,17 +7,23 @@ public class Fox extends Carnivora {
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eat(Animal a)
+	public void eatBluejay(Bluejay b)
 	{
-		if(a.getName().equals("r") || a.getName().equals("s")|| a.getName().equals("m")|| a.getName().equals("b"))
-		{
-			
-			super.eat(a);
-		}
-		else{
-			System.out.println("Fox meets "+a.getName());
-		}
-		
+		super.eat(b);
+	}
+	
+	public void eatRabbit(Rabbit r)
+	{
+		super.eat(r);
+	}
+	
+	public void eatSquirrel(Squirrel s)
+	{
+		super.eat(s);
+	}
+	public void eatMouse(Mouse m)
+	{
+		super.eat(m);
 	}
 }
 
