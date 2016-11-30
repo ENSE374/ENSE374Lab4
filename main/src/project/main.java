@@ -44,7 +44,9 @@ public class main{
 					for(int i=0;i<numbersOfAnimals;i++)
 					{
 						map.moving();
+						
 					}
+					
 					map.printMap();
 					System.out.println("-------------------");
 					System.out.println("                   ");

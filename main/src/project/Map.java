@@ -171,7 +171,7 @@ public class Map {
 		}
 		if(searchingName1.equals("G")||searchingName1.equals("T"))
 		{
-			System.out.print("Plant grows well after the rain.");
+			System.out.println("Plant grows well after the rain.");
 		}
 		else if (nameFound == true)
 		{
@@ -195,12 +195,18 @@ public class Map {
 				{
 					if (map[i][j].eat(map[i-movesteps][j]))
 					{
-						
+						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
+						map[i-movesteps][j] = map[i][j];
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+
 					}
-					map[i-movesteps][j] = map[i][j];
-					map[i][j]= new LivingThing();
-					map[i][j].setName("*");
-					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
+					else
+					{
+						// no change  of both 
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
+						System.out.println(map[i][j].getName() + " go back to the original position!");
+					}
 					//map[i][j].eat(map[i-movesteps][j]);
 				}
 			}
@@ -215,9 +221,22 @@ public class Map {
 				System.out.println(map[i+movesteps][j].getName()+" walks "+movesteps+" steps in the down direction.");
 				}
 				else
-				{		
-					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
-					map[i][j].eat(map[i+movesteps][j]);
+				{
+					if (map[i][j].eat(map[i+movesteps][j]))
+					{
+						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
+						map[i+movesteps][j] = map[i][j];
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+
+					}
+					else
+					{
+						// no change  of both 
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
+						System.out.println(map[i][j].getName() + " go back to the original position!");
+					}
+					//map[i][j].eat(map[i-movesteps][j]);
 				}
 				}
 			// going left
@@ -232,8 +251,21 @@ public class Map {
 				}
 				else
 				{
-					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
-					map[i][j].eat(map[i][j-movesteps]);
+					if (map[i][j].eat(map[i][j-movesteps]))
+					{
+						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
+						map[i][j-movesteps] = map[i][j];
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+
+					}
+					else
+					{
+						// no change  of both 
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
+						System.out.println(map[i][j].getName() + " go back to the original position!");
+					}
+					//map[i][j].eat(map[i-movesteps][j]);
 				}
 				}
 			// going right
@@ -249,8 +281,21 @@ public class Map {
 				}
 				else
 				{
-					System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
-					map[i][j].eat(map[i][j+movesteps]);
+					if (map[i][j].eat(map[i][j+movesteps]))
+					{
+						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
+						map[i][j+movesteps] = map[i][j];
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+
+					}
+					else
+					{
+						// no change  of both 
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
+						System.out.println(map[i][j].getName() + " go back to the original position!");
+					}
+					//map[i][j].eat(map[i-movesteps][j]);
 				}
 				}
 			else
