@@ -17,6 +17,8 @@ public class Rabbit extends Herbivore{
 		}
 		else{
 			System.out.println("Rabbit meets "+a.getName());
+			System.out.println("Rabbit meets "+a.getName());
+
 		}
 		
 	}
