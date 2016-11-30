@@ -13,7 +13,20 @@ public class main{
 		Map map = new Map(maxX,maxY);
 		int selection;
 		
-	
+		System.out.println("Instruction");
+		System.out.println("Wolf --- w");
+		System.out.println("Fox ---	 f");
+		System.out.println("Hawk --- h");
+		System.out.println("Deer --- d");
+		System.out.println("Rabbit --- r");
+		System.out.println("Squirrel --- s");
+		System.out.println("Mouse --- m");
+		System.out.println("Grasshopper --- g");
+		System.out.println("Caterpillar --- c");
+		System.out.println("Bluejay --- b");
+		System.out.println("Grass --- G");
+		System.out.println("Tree --- T");
+		System.out.println("---------------------------------------------------");
 		do
 		{
 			System.out.println("Saskatchewan prairies........");

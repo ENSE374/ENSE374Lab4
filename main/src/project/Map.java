@@ -83,25 +83,25 @@ public class Map {
 			int RandomAnimal = rand2.nextInt(12)+1;
 			switch(RandomAnimal)
 			{
-			case 1: Wolf w=new Wolf("w",13,23,22,44,x,y);
+			case 1: Wolf w=new Wolf("w",13,23,22,100,x,y);
 				setValue(x, y, w);break;
-			case 2: Fox f=new Fox("f",12,23,22,44,x,y);
+			case 2: Fox f=new Fox("f",12,23,22,100,x,y);
 				setValue(x, y, f);break;		
-			case 3: Hawk h=new Hawk("h",12,23,22,44,x,y);
+			case 3: Hawk h=new Hawk("h",12,23,22,80,x,y);
 				setValue(x, y, h);break;		
-			case 4: Deer d=new Deer("d",12,23,22,44,x,y);
+			case 4: Deer d=new Deer("d",12,23,22,100,x,y);
 				setValue(x, y, d);break;		
-			case 5: Rabbit r=new Rabbit("r",12,23,22,44,x,y);
+			case 5: Rabbit r=new Rabbit("r",12,23,22,60,x,y);
 				setValue(x, y, r);break;		
-			case 6: Squirrel s=new Squirrel("s",12,23,22,44,x,y);
+			case 6: Squirrel s=new Squirrel("s",12,23,22,60,x,y);
 				setValue(x, y, s);break;		
-			case 7: Mouse m=new Mouse("m",12,23,22,44,x,y);
+			case 7: Mouse m=new Mouse("m",12,23,22,55,x,y);
 				setValue(x, y, m);break;		
-			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,44,x,y);
+			case 8: Grasshopper gr=new Grasshopper("g",12,23,22,55,x,y);
 				setValue(x, y, gr);break;		
-			case 9: Caterpillar c=new Caterpillar("c",12,23,22,44,x,y);
+			case 9: Caterpillar c=new Caterpillar("c",12,23,22,55,x,y);
 				setValue(x, y, c);break;		
-			case 10: Bluejay b = new Bluejay("b",12,23,22,44,x,y);
+			case 10: Bluejay b = new Bluejay("b",12,23,22,70,x,y);
 				setValue(x, y, b);break;		
 			case 11: Grass g= new Grass("G",12,10,0,0,x,y);
 				setValue(x, y, g);break;		
@@ -137,7 +137,7 @@ public class Map {
 			break;		
 		case 7: searchingName1="m";
 			break;		
-		case 8: searchingName1="gr";
+		case 8: searchingName1="g";
 			break;		
 		case 9: searchingName1="c";
 			break;		
@@ -171,7 +171,8 @@ public class Map {
 		}
 		if(searchingName1.equals("G")||searchingName1.equals("T"))
 		{
-			System.out.println("Plant grows well after the rain.");
+			// grass and tree don't move 
+			// so they stay in their original places
 		}
 		else if (nameFound == true)
 		{
@@ -195,7 +196,7 @@ public class Map {
 				{
 					if (map[i][j].eat(map[i-movesteps][j]))
 					{
-						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
 						map[i-movesteps][j] = map[i][j];
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
@@ -203,8 +204,8 @@ public class Map {
 					}
 					else if (map[i-movesteps][j].eat(map[i][j]))
 					{
-						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the up direction.");
-						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						System.out.println("because " + map[i][j].getName() +" walks "+movesteps+" steps in the up direction.");
+						//System.out.println(map[i][j].getName() +" has been eaten!!!");
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 					}
@@ -214,24 +215,24 @@ public class Map {
 						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the up direction.");
 						System.out.println(map[i][j].getName() + " go back to the original position!");
 					}
-					//map[i][j].eat(map[i-movesteps][j]);
 				}
+				System.out.println();
 			}
 			// going down 
 			else if (direction == 2 && i+movesteps< maxX)
 			{
 				if(map[i+movesteps][j].getName().equals("*"))
 				{
-				map[i+movesteps][j] = map[i][j];
-				map[i][j]= new LivingThing();
-				map[i][j].setName("*");
+					map[i+movesteps][j] = map[i][j];
+					map[i][j]= new LivingThing();
+					map[i][j].setName("*");
 				System.out.println(map[i+movesteps][j].getName()+" walks "+movesteps+" steps in the down direction.");
 				}
 				else
 				{
 					if (map[i][j].eat(map[i+movesteps][j]))
 					{
-						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
 						map[i+movesteps][j] = map[i][j];
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
@@ -239,8 +240,8 @@ public class Map {
 					}
 					else if (map[i+movesteps][j].eat(map[i][j]))
 					{
-						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the down direction.");
-						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						System.out.println("because " + map[i][j].getName() +" walks "+movesteps+" steps in the down direction.");
+						//System.out.println(map[i][j].getName() +" has been eaten!!!");
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 					}
@@ -250,24 +251,24 @@ public class Map {
 						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the down direction.");
 						System.out.println(map[i][j].getName() + " go back to the original position!");
 					}
-					//map[i][j].eat(map[i-movesteps][j]);
 				}
-				}
+				System.out.println();
+			}
 			// going left
 			else if (direction == 3 && j-movesteps >=0)
 			{
 				if(map[i][j-movesteps].getName().equals("*"))
 				{
-				map[i][j-movesteps] = map[i][j];
-				map[i][j]= new LivingThing();
-				map[i][j].setName("*");
-				System.out.println(map[i][j-movesteps].getName()+" walks "+movesteps+" steps in the left direction.");
+					map[i][j-movesteps] = map[i][j];
+					map[i][j]= new LivingThing();
+					map[i][j].setName("*");
+					System.out.println(map[i][j-movesteps].getName()+" walks "+movesteps+" steps in the left direction.");
 				}
 				else
 				{
 					if (map[i][j].eat(map[i][j-movesteps]))
 					{
-						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
 						map[i][j-movesteps] = map[i][j];
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
@@ -275,8 +276,8 @@ public class Map {
 					}
 					else if (map[i][j-movesteps].eat(map[i][j]))
 					{
-						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the left direction.");
-						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						System.out.println("because " + map[i][j].getName() +" walks "+movesteps+" steps in the left direction.");
+						//System.out.println(map[i][j].getName() +" has been eaten!!!");
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 					}
@@ -286,25 +287,25 @@ public class Map {
 						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the left direction.");
 						System.out.println(map[i][j].getName() + " go back to the original position!");
 					}
-					//map[i][j].eat(map[i-movesteps][j]);
 				}
-				}
+				System.out.println();
+			}
 			// going right
 			else if (direction == 4 && j+movesteps < maxY)
 			{
 				if(map[i][j+movesteps].getName().equals("*"))
 				{
-				map[i][j+movesteps] = map[i][j];
-				map[i][j]= new LivingThing();
-				map[i][j].setName("*");
-				System.out.println(map[i][j+movesteps].getName()+" walks "+movesteps+" steps in the right direction.");
+					map[i][j+movesteps] = map[i][j];
+					map[i][j]= new LivingThing();
+					map[i][j].setName("*");
+					System.out.println( map[i][j+movesteps].getName()+" walks "+movesteps+" steps in the right direction.");
 			
 				}
 				else
 				{
 					if (map[i][j].eat(map[i][j+movesteps]))
 					{
-						System.out.println(map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
+						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
 						map[i][j+movesteps] = map[i][j];
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
@@ -312,8 +313,8 @@ public class Map {
 					}
 					else if (map[i][j+movesteps].eat(map[i][j]))
 					{
-						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the right direction.");
-						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						System.out.println("because " + map[i][j].getName() +" walks "+movesteps+" steps in the right direction.");
+						//System.out.println(map[i][j].getName() +" has been eaten!!!");
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 					}
@@ -323,19 +324,14 @@ public class Map {
 						System.out.println("because " + map[i][j].getName()+" walks "+movesteps+" steps in the right direction.");
 						System.out.println(map[i][j].getName() + " go back to the original position!");
 					}
-					//map[i][j].eat(map[i-movesteps][j]);
 				}
-				}
-			else
-			{
-				System.out.println("The animal in the position row="+i +",col="+j+" is taking a break.");
+				System.out.println();
 			}
-			//System.out.print(i);
 		}
-		if(nameFound == false)
+/*		if(nameFound == false)
 		{
 			System.out.println("Sunny weather, some animals are enjoying the sunshine.");
-		}
+		}*/
 	}
 	
 	
@@ -353,7 +349,7 @@ public class Map {
 					if (map[i][j].getEnergy() <=0)
 					{
 						map[i][j].setDeath(true);
-						System.out.println(map[i][j].getName() + "died due to starvation." );
+						System.out.println(map[i][j].getName() + " died due to starvation." );
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 					}
@@ -361,5 +357,6 @@ public class Map {
 
 			}
 		}
+		System.out.println();
 	}
 }

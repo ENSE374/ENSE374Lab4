@@ -19,7 +19,7 @@ public class Grasshopper extends Herbivore{
 			}
 		}
 		else{
-			System.out.println("Fox meets "+a.getName());
+			System.out.println("Grasshopper meets "+a.getName());
 		}
 		return false;
 	}

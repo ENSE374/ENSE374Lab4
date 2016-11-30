@@ -118,7 +118,7 @@ public class LivingThing {
 		{
 			a.setDeath(true);
 			setEnergy(a.getEnergy() + getEnergy());
-			System.out.println(name+" meets "+a.getName()+",and eats it cruelly!");
+			System.out.println(name+" meets "+a.getName()+",and eats it!");
 			a.disappear();
 			
 			return true;
