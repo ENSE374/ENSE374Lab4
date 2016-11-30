@@ -172,6 +172,7 @@ public class Animal {
 	{
 		if (death == true)
 		{
+			
 			System.out.println(name+" has dead and removed from the world");
 		}
 	}
