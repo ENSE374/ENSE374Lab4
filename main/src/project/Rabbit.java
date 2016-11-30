@@ -16,7 +16,7 @@ public class Rabbit extends Herbivore{
 			super.eat(a);
 		}
 		else{
-			System.out.println("Fox meets "+a.getName());
+			System.out.println("Rabbit meets "+a.getName());
 		}
 		
 	}
