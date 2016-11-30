@@ -16,7 +16,11 @@ public class Grasshopper extends Herbivore{
 			super.eat(a);
 		}
 		else{
+<<<<<<< HEAD
 			System.out.println("Grasshopper meets "+a.getName());
+=======
+			System.out.println("Fox meets "+a.getName());
+>>>>>>> master
 		}
 		
 	}
