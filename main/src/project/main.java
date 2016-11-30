@@ -8,8 +8,8 @@ public class main{
 	static Scanner scan = new Scanner(System.in);
 	public static void main (String[] args)
 	{
-		int maxX = 5;
-		int maxY = 5;
+		int maxX = 10;
+		int maxY = 10;
 		Map map = new Map(maxX,maxY);
 		int selection;
 		
@@ -34,7 +34,9 @@ public class main{
 			System.out.println("Please enter a selection:");
 			System.out.println("Press <1> for setting organism in the environment");
 			System.out.println("Press <2> for moving");
+			System.out.println("Press <3> for the Introductions");
 			System.out.println("Press <0> for exiting the program");
+			
 			selection = scan.nextInt();
 			if (selection == 1)
 			{
@@ -70,15 +72,24 @@ public class main{
 					
 				}
 				
-				//map.printMap();
 			}
-			else if (selection != 0)
+			
+			else if(selection == 0)
 			{
-				System.out.println("Your input is something wrong. try that again");
+				System.out.println("Thanks for using!");
+				break;
+			}
+			else if(selection == 3)
+			{
+				System.out.println("This is a small program that based on the food chain on Saskatchewan prairies.");
+				System.out.println("Users can get some basic information about the relationships about different ");
+				System.out.println("animals especially for childrens.");
+				System.out.println("               developers: Shuaihao Zhao, Xioajie Chen, Jinpeng Chen, Jiawei Huo");
+				break;
 			}
 			else 
 			{
-				break;
+				System.out.println("Your input is something wrong. try that again");
 			}
 		}while (true);
 	}
