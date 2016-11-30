@@ -25,12 +25,5 @@ public class Carnivora extends Animal{
 	public void setLevel(int level) {
 		this.level = level;
 	}
-	public void eat(Herbivore h)
-	{
-		super.eat(h);
-	}
-	public void eat(Omnivore o)
-	{
-		super.eat(o);
-	}
+
 }

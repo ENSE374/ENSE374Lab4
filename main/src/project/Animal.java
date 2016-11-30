@@ -100,7 +100,22 @@ public class Animal {
 	}
 
 	
-	public void eat(Herbivore h)
+	public void eat(Animal a)
+	{
+		if (hungry <50)
+		{
+			a.setDeath(true);
+			
+			System.out.println(name+" meets "+a.getName()+",and eats it cruelly!");
+			a.disappear();
+		}
+		else
+		{
+			System.out.println(name+" cannot eat "+a.getName());
+		}
+	}
+	
+	/*public void eat(Herbivore h)
 	{
 		if (hungry <50)
 		{
@@ -152,7 +167,7 @@ public class Animal {
 			System.out.println(name+" cannot eat "+p.getName());
 		}
 	}
-	
+	*/
 	public void destroy()
 	{
 		if (death == true)

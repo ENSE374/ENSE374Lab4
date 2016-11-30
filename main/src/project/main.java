@@ -8,12 +8,22 @@ public class main{
 	public static void main (String[] args)
 	{
 
-		Map map = new Map(5,5);
+		Map map = new Map(10,10);
 		int selection;
 		/////////////////////////////////////////////////////////////////////////
 		///////////ask for the selection/////////////
 
-		do
+		Wolf w=new Wolf("w",13,23,22,44);
+		Fox f=new Fox("f",12,23,22,44);
+		Squirrel s=new Squirrel("s",12,23,22,44);
+		Deer d=new Deer("d",12,23,22,44);
+		Grass g= new Grass("G",12,0,0,0);
+		Mouse m=new Mouse("m",12,23,22,44);
+		Hawk h=new Hawk("h",12,23,22,44);
+		
+		w.eat(s);
+		s.print();
+		/*do
 		{
 			System.out.println("Saskatchewan prairies........");
 			System.out.println("------------------------");
@@ -31,13 +41,25 @@ public class main{
 			}
 			else if (selection == 2)
 			{
-				System.out.println("Please enter a name of an animal or a plant");
-				String inputName = scan.next();
-				System.out.println("Please enter the direction: \n 1 for up \n 2 for down \n 3 for left \n 4 for right");
-				int direction = scan.nextInt();
+				System.out.println("Please give the date that the world can has: ");
+				int day = scan.nextInt();
+				int initial;
+				for( initial=1; initial<=day; initial++)
+				{
+					System.out.println("Day "+initial+": ");
+					System.out.println("-------------------");
+					
+					Random rand = new Random();
+					int numbersOfAnimals=rand.nextInt(7)+3;
+					
+					for(int i=0;i<numbersOfAnimals;i++)
+					{
+						map.moving();
+					}
+					System.out.println("-------------------");
+					System.out.println("                   ");
+				}
 				
-
-				map.moving(inputName, direction);
 				map.printMap();
 			}
 			else if (selection != 0)
@@ -48,7 +70,7 @@ public class main{
 			{
 				break;
 			}
-		}while (true);
+		}while (true);*/
 	}
 	
 }
