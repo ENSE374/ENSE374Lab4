@@ -16,12 +16,7 @@ public class Rabbit extends Herbivore{
 			super.eat(a);
 		}
 		else{
-<<<<<<< HEAD
 			System.out.println("Rabbit meets "+a.getName());
-			
-=======
-			System.out.println("Fox meets "+a.getName());
->>>>>>> parent of c732859... fix
 		}
 		
 	}
