@@ -7,13 +7,17 @@ public class Hawk extends Carnivora {
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eatSquirrel(Squirrel s)
+	public void eat(Animal a)
 	{
-		super.eat(s);
-	}
-	public void eatMouse(Mouse m)
-	{
-		super.eat(m);
+		if(a.getName().equals("m") || a.getName().equals("s"))
+		{
+			
+			super.eat(a);
+		}
+		else{
+			System.out.println("Hawk meets "+a.getName());
+		}
+		
 	}
 }
 

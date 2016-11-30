@@ -8,16 +8,17 @@ public class Grasshopper extends Herbivore{
 		super(name,id,hungry, speed, energy);
 	}
 	
-	public void eatGrass(Grass g)
+	public void eat(Animal a)
 	{
-		super.eat(g);
-		if (getHungry() <50)
+		if(a.getName().equals("G"))
 		{
-			g.grassDecress();
-
-			System.out.println(getName()+" ate "+g.getName());
+			
+			super.eat(a);
 		}
-
+		else{
+			System.out.println("Grasshopper meets "+a.getName());
+		}
+		
 	}
 	
 
