@@ -31,4 +31,8 @@ public class Grass extends LivingThing {
 		System.out.println("Living Ability:"+GLivingAbility);
 	}
 	
+	public boolean eat(LivingThing a)
+	{
+		return false;
+	}
 }

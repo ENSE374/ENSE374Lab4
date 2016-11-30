@@ -30,5 +30,8 @@ public class Tree extends LivingThing {
 		super.print();
 		System.out.println("Living Ability:"+GLivingAbility);
 	}
-	
+	public boolean eat(LivingThing a)
+	{
+		return false;
+	}
 }

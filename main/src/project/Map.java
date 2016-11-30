@@ -103,9 +103,9 @@ public class Map {
 				setValue(x, y, c);break;		
 			case 10: Bluejay b = new Bluejay("b",12,23,22,44,x,y);
 				setValue(x, y, b);break;		
-			case 11: Grass g= new Grass("G",12,0,0,10,x,y);
+			case 11: Grass g= new Grass("G",12,10,0,0,x,y);
 				setValue(x, y, g);break;		
-			case 12: Tree t = new Tree("T",12,0,0,10,x,y);
+			case 12: Tree t = new Tree("T",12,10,0,0,x,y);
 				setValue(x, y, t);break;
 			}
 
@@ -201,6 +201,13 @@ public class Map {
 						map[i][j].setName("*");
 
 					}
+					else if (map[i-movesteps][j].eat(map[i][j]))
+					{
+						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the up direction.");
+						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+					}
 					else
 					{
 						// no change  of both 
@@ -229,6 +236,13 @@ public class Map {
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 
+					}
+					else if (map[i+movesteps][j].eat(map[i][j]))
+					{
+						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the down direction.");
+						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
 					}
 					else
 					{
@@ -259,6 +273,13 @@ public class Map {
 						map[i][j].setName("*");
 
 					}
+					else if (map[i][j-movesteps].eat(map[i][j]))
+					{
+						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the left direction.");
+						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
+					}
 					else
 					{
 						// no change  of both 
@@ -288,6 +309,13 @@ public class Map {
 						map[i][j]= new LivingThing();
 						map[i][j].setName("*");
 
+					}
+					else if (map[i][j+movesteps].eat(map[i][j]))
+					{
+						System.out.println(map[i][j].getName() +" walks "+movesteps+" steps in the right direction.");
+						System.out.println(map[i][j].getName() +" has been eaten!!!");
+						map[i][j]= new LivingThing();
+						map[i][j].setName("*");
 					}
 					else
 					{
